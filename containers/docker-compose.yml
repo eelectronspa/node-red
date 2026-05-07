@@ -1,0 +1,23 @@
+services:
+  lab-nodered:
+    restart: always
+    user: "${UID}:${GID}"
+    image: nodered/node-red:latest
+    hostname: lab-nodered
+    container_name: lab-nodered
+    
+    volumes:
+      - ./nodered/data:/data:rw
+
+    ports:
+      # Web Panel
+      - target: 1880
+        published: 1880
+        protocol: tcp
+        host_ip: 0.0.0.0
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "5"

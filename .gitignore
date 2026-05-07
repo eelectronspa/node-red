@@ -1,0 +1,2 @@
+containers/nodered/data/*
+!containers/nodered/data/README.md

@@ -1,1 +1,3 @@
-# The nodered Data
+# The Node-RED Data
+
+You should backup this folder!

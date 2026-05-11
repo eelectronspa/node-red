@@ -5,6 +5,24 @@
 > **Note:** This is a general and minimal guide for setting up a Node-RED instance for development and testing purposes.  
 > **DO NOT USE IN PRODUCTION!**
 
+> **Note: `network_mode: host`**
+> The container is currently configured with `network_mode: host` because Docker's
+> default bridge networking does not support multicast routing. KNX/IP discovery
+> broadcasts packets to the multicast group `224.0.23.12:3671` — these packets are
+> addressed to a multicast IP, not to the container's IP, so Docker's port mapping
+> (`ports:`) cannot intercept and forward them to the container.
+>
+> With `network_mode: host` the container shares the host's network stack directly,
+> allowing it to join the multicast group and receive discovery packets just like a
+> native process would.
+>
+> **Limitation:** `network_mode: host` only works on **Linux**. On **macOS** and
+> **Windows** (Docker Desktop) the host network is virtualized inside a Linux VM,
+> so multicast traffic from the physical network never reaches the container regardless
+> of the network mode. On those platforms, use the unicast tunneling mode in the
+> KNX/IP node configuration and specify the gateway IP address manually instead of
+> relying on discovery.
+
 To ensure that the container runs with the permissions of the current user, we created a bash script named `docker.bash`.
 
 ```bash

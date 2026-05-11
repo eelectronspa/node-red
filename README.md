@@ -38,7 +38,7 @@ e.g. credentialSecret == `699170146222dc48ddbf21cc3e8d8de484d99bb170ee57be8016b2
 
 ### Edit settings.js
 
-Open `containers/nodered/data/settings.js` and locate the commented-out `adminAuth` block. Uncomment it and fill in your credentials:
+Open `containers/nodered/data/settings.js` and locate the commented-out `adminAuth` and `credentialSecret` blocks. Uncomment  both of them and fill them in:
 
 ```js
 adminAuth: {

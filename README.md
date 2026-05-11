@@ -81,8 +81,6 @@ You can now open Node-RED at `http://localhost:1880` and log in with your creden
 
 Since this package is not published on the npm registry, it must be installed directly from the GitHub repository.
 
-If it does not appear (because it is not on the public registry), use Option 2.
-
 ### Install via the container shell
 
 Run the following command to install the package directly from GitHub inside the
